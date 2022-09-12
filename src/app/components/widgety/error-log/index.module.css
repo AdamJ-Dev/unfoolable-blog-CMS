@@ -1,0 +1,12 @@
+.errorMessage {
+  margin-top: 3px; 
+  color: #7C0A02;
+}
+
+.errorLogTitle {
+  font-weight: bold;
+}
+
+.errorLog {
+  padding: 10px;
+}

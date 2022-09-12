@@ -1,0 +1,5 @@
+{
+  "username": "Your username must consist of alphanumeric characters.",
+  "password": "Your password must contain 8-20 characters. It must contain an uppercase, lowercase, and special character, as well as a number.",
+  "passcode": "Your access to this passcode is at the discretion of the application owner."
+}

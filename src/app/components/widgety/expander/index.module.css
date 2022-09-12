@@ -1,0 +1,27 @@
+.expander {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.targetWithIcon {
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
+
+.targetWithoutIcon {
+  cursor: pointer;
+}
+
+.targetWithoutIcon:hover {
+  color: gray;
+}
+
+.details {
+  max-width: 200px;
+  color: #5C5858;
+  border-radius: 3px;
+  padding: 3px;
+}

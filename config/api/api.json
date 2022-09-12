@@ -1,0 +1,8 @@
+{
+  "baseProxy": "/api",
+  "routes": {
+    "findUser": "/user/:id",
+    "login": "/user/login",
+    "signup": "/user/signup"
+  }
+}
