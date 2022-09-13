@@ -1,11 +1,2 @@
-import { NextPage } from 'next';
-
-const Blogs: NextPage = () => {
-  return (
-    <>
-      <h1>Blogs</h1>
-    </>
-  );
-};
-
-export default Blogs;
+export { default } from '../../src/app/pages/blogs';
+export { default as getStaticProps } from '../../src/app/pages/blogs/get-static-props';

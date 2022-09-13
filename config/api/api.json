@@ -1,8 +1,18 @@
 {
-  "baseProxy": "/api",
+  "baseDevUrl": "http://localhost:3001/",
+  "baseProxy": "/api/",
   "routes": {
-    "findUser": "/user/:id",
-    "login": "/user/login",
-    "signup": "/user/signup"
+    "auth": {
+      "findUser": "user/:id",
+      "login": "user/login",
+      "signup": "user/signup"
+    },
+    "blogs": {
+      "findAllBlogs": "blogs",
+      "findBlog": "blog/:id",
+      "createBlog": "blog/create",
+      "updateBlog": "blog/:id",
+      "deleteBlog": "blog/:id"
+    }
   }
 }

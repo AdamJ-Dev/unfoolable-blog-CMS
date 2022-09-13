@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { AuthRedirect } from '../../types';
 import useUser from '../../hooks/use-user';
 import { isFetchResolved } from '../../utility/data-fetching/is-fetch-resolved';
+import Container from '../styled/container/index.styled';
 
 type AuthWrapProps = {
   children: React.ReactNode;
@@ -45,7 +46,17 @@ const AuthWrap: React.FC<AuthWrapProps> = ({ children, authRedirect }) => {
     }
   }, [user, loading]);
 
-  return <>{loading ? <p>Loading...</p> : shouldRender && children}</>;
+  return (
+    <>
+      {loading ? (
+        <Container>
+          <p>Loading...</p>
+        </Container>
+      ) : (
+        shouldRender && children
+      )}
+    </>
+  );
 };
 
 export default AuthWrap;
