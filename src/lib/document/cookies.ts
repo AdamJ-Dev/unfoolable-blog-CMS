@@ -2,7 +2,8 @@ export const getCookies = () => {
   return document.cookie.split('; ');
 };
 
-export const selectCookie = (key: string, cookies: string[]) => {
+export const selectCookie = (key: string) => {
+  const cookies = getCookies();
   return cookies.find((cookie) => cookie.startsWith(`${key}=`));
 };
 
