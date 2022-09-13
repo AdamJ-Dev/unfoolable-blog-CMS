@@ -35,5 +35,5 @@ Based on folder structure, here are some notes to help navigating the project:
   - `/lib` conatains 'library-level' logic and features, that the application samples from, but in theory, reasonably, other applications could sample from too.
 - root-level files are generally for configuring resident tools/technologies.
 
-<sup>1</sup>At this nesting level, shared/sharable means *between pages*.
+<sup>1</sup><small>At this nesting level, shared/sharable means *between pages*.</small>
 
