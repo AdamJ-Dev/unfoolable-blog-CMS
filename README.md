@@ -14,7 +14,7 @@ Such tasks are possible according to the following permissions:
   delete a comment: owner;
 ```
 
-AdamJ-Dev is the only owner. An owner is also an admin. To *become* an admin, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing admins, and may be changed at the application owner's discretion. 
+AdamJ-Dev is the only owner. An owner is also an admin. To *become* an admin, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing admins, and may be changed at the owner's discretion. 
 
 ## Getting started:
 
@@ -47,5 +47,5 @@ Based on folder structure, here are some notes to help navigating the project:
   - `/lib` conatains 'library-level' logic and features, that the application samples from, but in theory, reasonably, other applications could sample from too.
 - root-level files are generally for configuring resident tools/technologies.
 
-<sup>1</sup><small>At this nesting level, shared/sharable means *between pages*.</small>
+<sup>1</sup>At this nesting level, shared/sharable means *between pages*.
 
