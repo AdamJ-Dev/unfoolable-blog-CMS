@@ -9,12 +9,12 @@ Such tasks are possible according to the following permissions:
   update a blog: owner;
   delete a blog: owner;
   pin a comment: owner;
-  create an admin comment: admin;
-  edit an admin comment: admin;
+  create a verified comment: user;
+  edit your own verified comment: user;
   delete a comment: owner;
 ```
 
-AdamJ-Dev is the only owner. An owner is also an admin. To *become* an admin, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing admins, and may be changed at the owner's discretion. 
+AdamJ-Dev is the only owner. An owner is also a user. To *become* a user, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing users, and may be changed at the owner's discretion. 
 
 ## Getting started:
 
