@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { AuthRedirect } from '../../types';
+import { AuthRedirect } from '../../types/auth';
 import useUser from '../../hooks/use-user';
 import { isFetchResolved } from '../../utility/data-fetching/is-fetch-resolved';
 import Container from '../styled/container/index.styled';
@@ -44,7 +44,7 @@ const AuthWrap: React.FC<AuthWrapProps> = ({ children, authRedirect }) => {
           break;
       }
     }
-  }, [user, loading]);
+  }, [user, error, loading]);
 
   return (
     <>
@@ -53,7 +53,7 @@ const AuthWrap: React.FC<AuthWrapProps> = ({ children, authRedirect }) => {
           <p>Loading...</p>
         </Container>
       ) : (
-        shouldRender && children
+        shouldRender && <>{children}</>
       )}
     </>
   );
