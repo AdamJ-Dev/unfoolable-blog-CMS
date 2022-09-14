@@ -1,6 +1,7 @@
 export type User = {
   id: string;
   token: string;
+  admin: boolean;
 };
 
 export type Cookies = Record<string, string | undefined>;

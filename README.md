@@ -5,16 +5,16 @@ The purpose of this application is to **manage content** on AdamJ-Dev's **[blog]
 Such tasks are possible according to the following permissions:
 
 ```
-  create a blog: owner;
-  update a blog: owner;
-  delete a blog: owner;
-  pin a comment: owner;
+  create a blog: admin;
+  update a blog: admin;
+  delete a blog: admin;
+  pin a comment: admin;
   create a verified comment: user;
   edit your own verified comment: user;
-  delete a comment: owner;
+  delete a comment: admin;
 ```
 
-AdamJ-Dev is the only owner. An owner is also a user. To *become* a user, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing users, and may be changed at the owner's discretion. 
+An admin is also a user. To become a user, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing admins, and may be changed at the application owner's discretion.
 
 ## Getting started:
 

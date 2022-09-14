@@ -5,6 +5,7 @@ import { USER_NOT_FOUND } from '../../constants/errors';
 type StoredUser = {
   id?: string;
   token?: string;
+  admin?: string;
 };
 
 export const getStoredUser = (): StoredUser => {
@@ -18,20 +19,23 @@ export const getStoredUser = (): StoredUser => {
   throw Error(USER_NOT_FOUND);
 };
 
-export const getStoredUserId = (storedUser: StoredUser) => {
-  const { id } = storedUser;
-  if (!id) {
+const getStoredUserInfo = (info: keyof StoredUser, storedUser: StoredUser) => {
+  const storedInfo = storedUser[info];
+  if (!storedInfo) {
     throw Error(USER_NOT_FOUND);
   } else {
-    return id;
+    return storedInfo;
   }
 };
 
+export const getStoredUserId = (storedUser: StoredUser) => {
+  return getStoredUserInfo('id', storedUser);
+};
+
 export const getStoredUserToken = (storedUser: StoredUser) => {
-  const { token } = storedUser;
-  if (!token) {
-    throw Error(USER_NOT_FOUND);
-  } else {
-    return token;
-  }
+  return getStoredUserInfo('token', storedUser);
+};
+
+export const getStoredUserAdmin = (storedUser: StoredUser) => {
+  return getStoredUserInfo('admin', storedUser);
 };
