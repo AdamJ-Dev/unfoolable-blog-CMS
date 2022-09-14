@@ -1,7 +1,7 @@
 import StyledNextLink from '../../../../styled/link/next-link.styled';
 import styles from '../index.module.css';
 
-const NonUserLinks = (
+const NonUserLinks: React.FC = () => (
   <ul className={styles.linksList}>
     <li className={styles.linksListItem}>
       <StyledNextLink href="/login" linker="Log In" />
