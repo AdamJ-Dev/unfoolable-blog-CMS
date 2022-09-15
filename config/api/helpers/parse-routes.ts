@@ -1,5 +1,7 @@
-export const parseIdRoute = (route: string, id: string) => {
-  return route.replace(':id', id);
+import { Replacement, applyReplaceSequence } from '../../../src/lib/format/replace-sequence';
+
+export const applyIds = (route: string, ids: Replacement[]) => {
+  return applyReplaceSequence(route, ids);
 };
 
 export const getAbsolute = (options?: { absolute: boolean }) => {

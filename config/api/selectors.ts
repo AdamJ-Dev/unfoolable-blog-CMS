@@ -1,5 +1,5 @@
 import api from './api.json';
-import { getAbsolute, parseIdRoute } from './helpers/parse-routes';
+import { getAbsolute, applyIds } from './helpers/parse-routes';
 
 // base urls:
 export const getApiBaseDevUrl = () => {
@@ -29,7 +29,7 @@ export const getUrl = (route: string, absolute: boolean) => {
 
 // auth routes:
 export const getFindUserUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(parseIdRoute(api.routes.auth.findUser, id), getAbsolute(options));
+  return getUrl(applyIds(api.routes.auth.findUser, [[':id', id]]), getAbsolute(options));
 };
 
 export const getLoginUrl = (options?: { absolute: boolean }) => {
@@ -46,7 +46,7 @@ export const getFindAllBlogsUrl = (options?: { absolute: boolean }) => {
 };
 
 export const getFindBlogUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(parseIdRoute(api.routes.blogs.findBlog, id), getAbsolute(options));
+  return getUrl(applyIds(api.routes.blogs.findBlog, [[':id', id]]), getAbsolute(options));
 };
 
 export const getCreateBlogUrl = (options?: { absolute: boolean }) => {
@@ -54,9 +54,57 @@ export const getCreateBlogUrl = (options?: { absolute: boolean }) => {
 };
 
 export const getUpdateBlogUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(parseIdRoute(api.routes.blogs.updateBlog, id), getAbsolute(options));
+  return getUrl(applyIds(api.routes.blogs.updateBlog, [[':id', id]]), getAbsolute(options));
 };
 
 export const getDeleteBlogUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(parseIdRoute(api.routes.blogs.deleteBlog, id), getAbsolute(options));
+  return getUrl(applyIds(api.routes.blogs.deleteBlog, [[':id', id]]), getAbsolute(options));
+};
+
+// comments routes
+export const getFindAllCommentsUrl = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.comments.findAllComments, getAbsolute(options));
+};
+
+export const getFindBlogsCommentsUrl = (blogId: string, options?: { absolute: boolean }) => {
+  return getUrl(
+    applyIds(api.routes.comments.findBlogsComments, [[':blog_id', blogId]]),
+    getAbsolute(options)
+  );
+};
+
+export const getFindComment = (id: string, options?: { absolute: boolean }) => {
+  return getUrl(applyIds(api.routes.comments.findComment, [[':id', id]]), getAbsolute(options));
+};
+
+export const getCreateCommentUrl = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.comments.createComment, getAbsolute(options));
+};
+
+export const getCreateUserCommentUrl = (userId: string, options?: { absolute: boolean }) => {
+  return getUrl(
+    applyIds(api.routes.comments.createUserComment, [[':user_id', userId]]),
+    getAbsolute(options)
+  );
+};
+
+export const getCreateAdminCommentUrl = (userId: string, options?: { absolute: boolean }) => {
+  return getUrl(
+    applyIds(api.routes.comments.createAdminComment, [[':user_id', userId]]),
+    getAbsolute(options)
+  );
+};
+
+export const getUpdateCommentUrl = (userId: string, commentId: string, options?: { absolute: boolean }) => {
+  return getUrl(
+    applyIds(api.routes.comments.updateComment, [
+      [':user_id', userId],
+      [':comment_id', commentId],
+    ]),
+    getAbsolute(options)
+  );
+};
+
+export const getDeleteCommentUrl = (id: string, options?: { absolute: boolean }) => {
+  return getUrl(applyIds(api.routes.comments.deleteComment, [[':id', id]]), getAbsolute(options));
 };
