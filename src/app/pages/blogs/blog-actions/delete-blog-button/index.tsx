@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { CONFIRM_DELETE } from '../../../../constants/dialogue';
-import theme from '../../../../../lib/theme/my-theme';
 import deleteBlog from '../../../../utility/blogs/delete-blog';
 import styles from './index.module.css';
 
@@ -14,8 +13,7 @@ const DeleteBlogbutton: React.FC<DeleteBlogbuttonProps> = ({ id }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
-    const confirmation = confirm(CONFIRM_DELETE);
-    if (confirmation) {
+    if (confirm(CONFIRM_DELETE)) {
       setLoading(true);
       const { error } = await deleteBlog(id);
       if (error) {
@@ -26,14 +24,18 @@ const DeleteBlogbutton: React.FC<DeleteBlogbuttonProps> = ({ id }) => {
     }
   };
 
-  return !loading ? (
-    <button type="button" onClick={handleDelete} className={styles.deleteButton}>
-      delete
-    </button>
-  ) : (
-    <button type="button" className={styles.deleteButton} disabled>
-      loading...
-    </button>
+  return (
+    <>
+      {!loading ? (
+        <button type="button" onClick={handleDelete} className={styles.deleteButton}>
+          delete
+        </button>
+      ) : (
+        <button type="button" className={styles.deleteButton} disabled>
+          loading...
+        </button>
+      )}
+    </>
   );
 };
 
