@@ -1,10 +1,12 @@
 import type { Blog } from '../../types/blogs';
+import { getDateDisplay } from '../../../lib/format/get-date-display';
+import { PlusIcon } from '../../../lib/icons';
 import Container from '../../components/styled/container/index.styled';
 import Expander from '../../components/widgety/expander';
-import BlogActions from './blog-actions';
-import styles from './index.module.css';
-import { getDateDisplay } from '../../../lib/format/get-date-display';
+import BlogActions from './components/blog-actions-list';
 import Date from '../../components/styled/date/index.styled';
+import StyledNextLink from '../../components/styled/link/next-link.styled';
+import styles from './index.module.css';
 
 type BlogsPageProps = {
   blogs: Blog[];
@@ -13,7 +15,10 @@ type BlogsPageProps = {
 const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
   return (
     <Container>
-      <h1>Blogs</h1>
+      <div>
+        <h1 className={styles.blogsTitle}>Blogs</h1>
+        <StyledNextLink href="blog/workspace" linker={<PlusIcon />} />
+      </div>
       <ul className={styles.blogsList}>
         {blogs.map((blog) => (
           <li key={blog._id}>

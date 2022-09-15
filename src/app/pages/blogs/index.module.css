@@ -1,3 +1,8 @@
+.blogsTitle {
+  display: inline;
+  margin-right: 8px;
+}
+
 .blogTitle {
   display: inline;
   color: #013220;

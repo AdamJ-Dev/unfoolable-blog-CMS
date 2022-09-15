@@ -1,5 +1,5 @@
 import api from './api.json';
-import { getAbsolute, parseIdRoute } from './helpers';
+import { getAbsolute, parseIdRoute } from './helpers/parse-routes';
 
 // base urls:
 export const getApiBaseDevUrl = () => {

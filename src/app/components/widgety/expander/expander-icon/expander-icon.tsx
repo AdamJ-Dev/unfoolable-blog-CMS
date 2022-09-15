@@ -1,6 +1,5 @@
-import CollapseIcon from './icons/collapse-icon';
-import ExpandIcon from './icons/expand-icon';
-import styles from './index.module.css';
+import { ChevronDownIcon, ChevronUpIcon } from '../../../../../lib/icons';
+import styles from './expander-icon.module.css';
 
 type ExpanderIconProps = {
   expanded: boolean;
@@ -10,7 +9,7 @@ type ExpanderIconProps = {
 const ExpanderIcon: React.FC<ExpanderIconProps> = ({ expanded, toggler }) => {
   return (
     <span className={styles.expanderIcon} onClick={toggler}>
-      {expanded ? CollapseIcon : ExpandIcon}
+      {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
     </span>
   );
 };

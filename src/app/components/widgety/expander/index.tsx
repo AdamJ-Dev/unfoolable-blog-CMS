@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import StyledExpanderTarget from './expander-target/index.styled';
-import ExpanderIcon from './expander-icon';
+import ExpanderIcon from './expander-icon/expander-icon';
 import styles from './index.module.css';
 
 type ExpanderProps = {

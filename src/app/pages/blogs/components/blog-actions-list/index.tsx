@@ -1,12 +1,12 @@
-import StyledNextLink from '../../../components/styled/link/next-link.styled';
-import DeleteBlogButton from './delete-blog-button';
+import StyledNextLink from '../../../../components/styled/link/next-link.styled';
+import DeleteBlogButton from '../delete-blog-button';
 import styles from './index.module.css';
 
 type BlogActionsProps = {
   id: string;
 };
 
-const BlogActions: React.FC<BlogActionsProps> = ({ id }) => {
+const BlogActionsList: React.FC<BlogActionsProps> = ({ id }) => {
   return (
     <ul className={styles.blogActionsList}>
       <li>
@@ -22,4 +22,4 @@ const BlogActions: React.FC<BlogActionsProps> = ({ id }) => {
   );
 };
 
-export default BlogActions;
+export default BlogActionsList;
