@@ -4,6 +4,7 @@ const theme = {
     block: '#DCDCDC',
     error: '#7C0A02',
     delete: '#C21807',
+    title: '#013220',
   },
 };
 

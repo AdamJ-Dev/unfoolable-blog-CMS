@@ -1,4 +1,13 @@
-import { User } from '../../../types';
+export type User = {
+  id: string;
+  token: string;
+  admin: boolean;
+};
+
+export type AuthRedirect = {
+  type: 'protect' | 'align';
+  to?: string;
+};
 
 type AuthSuccess = {
   user: User;

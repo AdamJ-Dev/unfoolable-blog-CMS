@@ -1,6 +1,6 @@
 import { getSignupUrl } from '../../../../config/api/selectors';
 import { PASSWORDS_DONT_MATCH } from '../../constants/errors';
-import type { AuthRes } from './types';
+import type { AuthRes } from '../../types/auth';
 import postAuth from './post-auth';
 
 const signup = async (username: string, password: string, confirm: string): Promise<AuthRes> => {

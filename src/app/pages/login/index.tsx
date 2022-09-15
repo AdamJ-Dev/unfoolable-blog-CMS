@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { SyntheticEvent, useState } from 'react';
+import type { LoginForm } from '../../types/auth';
 import Block from '../../components/styled/block/index.styled';
 import Button from '../../components/styled/button/index.styled';
 import Container from '../../components/styled/container/index.styled';
@@ -7,14 +8,13 @@ import InputLabel from '../../components/styled/input-label/index.styled';
 import StyledNextLink from '../../components/styled/link/next-link.styled';
 import TextInput from '../../components/styled/text-input/index.styled';
 import login from '../../utility/auth/login';
-import { LoginForm } from '../../utility/auth/types';
 import ErrorLog from '../../components/widgety/error-log';
 import styles from '../../styles/auth.module.css';
 
 const Login = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -25,7 +25,6 @@ const Login = () => {
 
     setIsLoading(true);
     const { error } = await login(username, password);
-
     if (error !== null) {
       setError(error);
       setIsLoading(false);

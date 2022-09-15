@@ -1,5 +1,5 @@
 import { getFindUserUrl } from '../../../../config/api/selectors';
-import { User } from '../../types';
+import { User } from '../../types/auth';
 import { USER_NOT_FOUND } from '../../constants/errors';
 
 const fetchUser = async (id: string): Promise<User> => {

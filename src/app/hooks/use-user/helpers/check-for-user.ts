@@ -1,4 +1,4 @@
-import { User } from '../../../types';
+import { User } from '../../../types/auth';
 import fetchUser from '../../../utility/data-fetching/fetch-user';
 import { getErrorMessage } from '../../../utility/data-fetching/get-error-message';
 import { getStoredUser, getStoredUserId } from '../../../utility/auth/get-stored-user';

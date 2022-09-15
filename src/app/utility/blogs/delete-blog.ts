@@ -1,7 +1,7 @@
 import { getDeleteBlogUrl } from '../../../../config/api/selectors';
 import { fetchDelete } from '../../../lib/data-fetching/fetch-delete';
 import { getAuthToken } from '../data-fetching/get-auth-token';
-import type { FetchBlogRes } from './types';
+import type { FetchBlogRes } from '../../types/blogs';
 
 const deleteBlog = async (id: string): Promise<FetchBlogRes> => {
   const res = await fetchDelete(getDeleteBlogUrl(id), getAuthToken());
