@@ -21,7 +21,7 @@ const Expander: React.FC<ExpanderProps> = ({ target, details, addIcon = true }) 
       <div>
         {addIcon ? (
           <span className={styles.targetWithIcon}>
-            {target}
+            <span>{target}</span>
             <ExpanderIcon expanded={expanded} toggler={toggleExpand} />
           </span>
         ) : (
