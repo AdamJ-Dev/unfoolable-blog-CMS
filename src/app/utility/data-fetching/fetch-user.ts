@@ -9,8 +9,8 @@ const fetchUser = async (id: string): Promise<User> => {
     throw Error(USER_NOT_FOUND);
   }
 
-  const user = await res.json();
-  return user;
+  const data = await res.json();
+  return data.user;
 };
 
 export default fetchUser;
