@@ -1,0 +1,12 @@
+.deleteButtonEnabled {
+  background: #c21807;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.deleteButtonDisabled {
+  background: #bd4d43;
+  border: none;
+  color: white;
+}

@@ -1,5 +1,6 @@
 import StyledNextLink from '../../../../components/styled/link/next-link.styled';
-import DeleteBlogButton from '../delete-blog-button';
+import DeleteButton from '../../../../components/widgety/delete-button';
+import deleteBlog from '../../../../utility/blogs/delete-blog';
 import styles from './index.module.css';
 
 type BlogActionsProps = {
@@ -16,7 +17,7 @@ const BlogActionsList: React.FC<BlogActionsProps> = ({ id }) => {
         <StyledNextLink href={`/blog/workspace/${id}`} linker="edit" />
       </li>
       <li>
-        <DeleteBlogButton id={id} />
+        <DeleteButton id={id} deleter={deleteBlog} />
       </li>
     </ul>
   );

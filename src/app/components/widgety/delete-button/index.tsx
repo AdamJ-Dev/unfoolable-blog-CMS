@@ -1,21 +1,21 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { CONFIRM_DELETE } from '../../../../constants/dialogue';
-import deleteBlog from '../../../../utility/blogs/delete-blog';
+import { CONFIRM_DELETE } from '../../../constants/dialogue';
 import styles from './index.module.css';
 
-type DeleteBlogbuttonProps = {
+type DeleteButtonProps = {
   id: string;
+  deleter: (id: string) => Promise<{ error: string | null }>;
 };
 
-const DeleteBlogbutton: React.FC<DeleteBlogbuttonProps> = ({ id }) => {
+const DeleteButton: React.FC<DeleteButtonProps> = ({ id, deleter }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
     if (confirm(CONFIRM_DELETE)) {
       setLoading(true);
-      const { error } = await deleteBlog(id);
+      const { error } = await deleter(id);
       if (error) {
         router.push('/500');
       } else {
@@ -27,11 +27,11 @@ const DeleteBlogbutton: React.FC<DeleteBlogbuttonProps> = ({ id }) => {
   return (
     <>
       {!loading ? (
-        <button type="button" onClick={handleDelete} className={styles.deleteButton}>
+        <button type="button" onClick={handleDelete} className={styles.deleteButtonEnabled}>
           delete
         </button>
       ) : (
-        <button type="button" className={styles.deleteButton} disabled>
+        <button type="button" className={styles.deleteButtonDisabled} disabled>
           loading...
         </button>
       )}
@@ -39,4 +39,4 @@ const DeleteBlogbutton: React.FC<DeleteBlogbuttonProps> = ({ id }) => {
   );
 };
 
-export default DeleteBlogbutton;
+export default DeleteButton;
