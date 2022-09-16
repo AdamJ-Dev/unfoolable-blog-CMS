@@ -14,14 +14,14 @@ type BlogsPageProps = {
 
 const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
   return (
-    <Container>
+    <Container m="30px" p="30px">
       <div>
         <h1 className={styles.blogsTitle}>Blogs</h1>
         <StyledNextLink href="blog/workspace" linker={<PlusIcon />} />
       </div>
       <ul className={styles.blogsList}>
         {blogs.map((blog) => (
-          <li key={blog._id}>
+          <li key={blog.id}>
             <Expander
               target={
                 <span className={styles.blogInfo}>
@@ -29,7 +29,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
                   <Date>({getDateDisplay(blog.createdAt, blog.updatedAtDate)})</Date>
                 </span>
               }
-              details={<BlogActions id={blog._id} />}
+              details={<BlogActions id={blog.id} />}
             />
           </li>
         ))}
