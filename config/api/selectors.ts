@@ -81,28 +81,16 @@ export const getCreateCommentUrl = (options?: { absolute: boolean }) => {
   return getUrl(api.routes.comments.createComment, getAbsolute(options));
 };
 
-export const getCreateUserCommentUrl = (userId: string, options?: { absolute: boolean }) => {
-  return getUrl(
-    applyIds(api.routes.comments.createUserComment, [[':user_id', userId]]),
-    getAbsolute(options)
-  );
+export const getCreateUserCommentUrl = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.comments.createUserComment, getAbsolute(options));
 };
 
-export const getCreateAdminCommentUrl = (userId: string, options?: { absolute: boolean }) => {
-  return getUrl(
-    applyIds(api.routes.comments.createAdminComment, [[':user_id', userId]]),
-    getAbsolute(options)
-  );
+export const getCreateAdminCommentUrl = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.comments.createAdminComment, getAbsolute(options));
 };
 
-export const getUpdateCommentUrl = (userId: string, commentId: string, options?: { absolute: boolean }) => {
-  return getUrl(
-    applyIds(api.routes.comments.updateComment, [
-      [':user_id', userId],
-      [':comment_id', commentId],
-    ]),
-    getAbsolute(options)
-  );
+export const getUpdateCommentUrl = (id: string, options?: { absolute: boolean }) => {
+  return getUrl(applyIds(api.routes.comments.updateComment, [[':id', id]]), getAbsolute(options));
 };
 
 export const getDeleteCommentUrl = (id: string, options?: { absolute: boolean }) => {
