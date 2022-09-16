@@ -1,6 +1,6 @@
 # unfoolable CMS
 
-The purpose of this application is to **manage content** on AdamJ-Dev's **[blog](https://unfoolable.blog)**. This means *creating*, *editing*, and *deleting* blogs, as well *pinning*, *deleting*, and *creating/editing admin versions of* blog comments. 
+The purpose of this application is to **manage content** on AdamJ-Dev's **[blog](https://unfoolable.blog)**. This means *creating*, *editing*, and *deleting* blogs, as well *pinning*, *deleting*, and *creating user/admin versions of* blog comments. 
 
 Such tasks are possible according to the following permissions:
 
@@ -39,6 +39,7 @@ Based on folder structure, here are some notes to help navigating the project:
     - `/components` contains shared/sharable<sup>1</sup> components.
     - `/constants` contains shared/sharable constants, or constants which shouldn't be specified within their consuming file.
     - `/hooks` contains shared/sharable custom hooks.
+    - `/context` contains shared/sharable React context.
     - `/pages` contains the (sub-)components for each page, as well as the page-props-getters.
     - `/styles` contains shared/sharable css.
     - `/types` contains shared/sharable types.
