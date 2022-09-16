@@ -1,6 +1,9 @@
+import { DBObjId } from '../general';
+
 export type User = {
-  id: string;
-  token: string;
+  _id: DBObjId;
+  username: string;
+  password: string;
   admin: boolean;
 };
 
