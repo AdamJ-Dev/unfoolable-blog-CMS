@@ -1,0 +1,12 @@
+.replyButtonEnabled {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+  border: none;
+}
+
+.replyButtonDisabled {
+  background-color: rgb(73, 73, 255);
+  color: white;
+  border: none;
+}

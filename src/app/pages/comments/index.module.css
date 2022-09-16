@@ -1,0 +1,12 @@
+.commentSection {
+  width: 45vw;
+}
+
+.commentSectionTitle {
+  display: inline;
+}
+
+.commentSectionList {
+  list-style: none;
+  padding: 0;
+}
