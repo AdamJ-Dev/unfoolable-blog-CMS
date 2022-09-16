@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { getLanguage } from './helpers/get-language';
-import { tomorrowNight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { tomorrowNight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { prepareHighlight } from './helpers/prepare-highlight';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 

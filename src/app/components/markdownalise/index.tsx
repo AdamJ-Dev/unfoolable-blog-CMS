@@ -3,10 +3,10 @@ import ReactMarkdown from 'react-markdown';
 import HighlightedCode from './highlighted-code';
 
 type MarkdownaliseProps = {
-  content: string;
+  children: string;
 };
 
-const Markdownalise: React.FC<MarkdownaliseProps> = ({ content }) => {
+const Markdownalise: React.FC<MarkdownaliseProps> = ({ children }) => {
   return (
     <ReactMarkdown
       components={{
@@ -20,7 +20,7 @@ const Markdownalise: React.FC<MarkdownaliseProps> = ({ content }) => {
       }}
       remarkPlugins={[remarkGfm]}
     >
-      {content}
+      {children}
     </ReactMarkdown>
   );
 };
