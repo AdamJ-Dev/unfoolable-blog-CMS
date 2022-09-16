@@ -34,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <Container>
+    <Container m="10px 30px" p="30px">
       <h1>Log In</h1>
       <div className={styles.authFormContainer}>
         <form onSubmit={handleLogin} spellCheck={false}>

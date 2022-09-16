@@ -1,5 +1,5 @@
-import Container from '../styled/container/index.styled';
 import NavBar from './nav';
+import styles from './index.module.css';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <Container>{children}</Container>
+      <div className={styles.belowNav}>{children}</div>
     </>
   );
 };
