@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import StyledExpanderTarget from './expander-target/index.styled';
-import ExpanderIcon from './expander-icon';
+import ExpanderIcon from './expander-icon/expander-icon';
 import styles from './index.module.css';
 
 type ExpanderProps = {
@@ -21,7 +21,7 @@ const Expander: React.FC<ExpanderProps> = ({ target, details, addIcon = true }) 
       <div>
         {addIcon ? (
           <span className={styles.targetWithIcon}>
-            {target}
+            <span>{target}</span>
             <ExpanderIcon expanded={expanded} toggler={toggleExpand} />
           </span>
         ) : (

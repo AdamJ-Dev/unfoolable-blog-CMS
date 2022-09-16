@@ -5,6 +5,7 @@ import {
   getPasswordSignupSpec,
   getUsernameSignupSpec,
 } from '../../../../config/signup/selectors';
+import type { SignupForm } from '../../types/auth';
 import Expander from '../../components/widgety/expander';
 import Block from '../../components/styled/block/index.styled';
 import Button from '../../components/styled/button/index.styled';
@@ -13,7 +14,6 @@ import InputLabel from '../../components/styled/input-label/index.styled';
 import StyledNextLink from '../../components/styled/link/next-link.styled';
 import TextInput from '../../components/styled/text-input/index.styled';
 import signup from '../../utility/auth/signup';
-import { SignupForm } from '../../utility/auth/types';
 import ErrorLog from '../../components/widgety/error-log';
 import styles from '../../styles/auth.module.css';
 
@@ -42,7 +42,7 @@ const Signup = () => {
   };
 
   return (
-    <Container>
+    <Container m="10px 30px" p="30px">
       <h1>Sign Up</h1>
       <div className={styles.authFormContainer}>
         <form onSubmit={handleSignup} spellCheck={false}>

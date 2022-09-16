@@ -1,0 +1,4 @@
+.flipIcon {
+  display: inline-block;
+  transform: rotateY(180deg);
+}

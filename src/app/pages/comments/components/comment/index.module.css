@@ -1,0 +1,23 @@
+.focusedComment {
+  border: 1px solid darkblue;
+}
+
+.commentInfo {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.commentInfoItem {
+  padding-right: 8px;
+  border-right: 1px solid black;
+}
+
+.commentActions {
+  display: flex;
+  gap: 7px;
+}
+
+.replyButton {
+  cursor: pointer;
+}

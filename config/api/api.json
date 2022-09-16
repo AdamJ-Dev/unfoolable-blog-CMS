@@ -13,6 +13,16 @@
       "createBlog": "blog/create",
       "updateBlog": "blog/:id",
       "deleteBlog": "blog/:id"
+    },
+    "comments": {
+      "findAllComments": "comments",
+      "findBlogsComments": "blog/:blog_id/comments",
+      "findComment": "comment/:id",
+      "createComment": "comment/create",
+      "createUserComment": "comment/user/create",
+      "createAdminComment": "comment/admin/create",
+      "updateComment": "comment/:id",
+      "deleteComment": "/comment/:id"
     }
   }
 }
