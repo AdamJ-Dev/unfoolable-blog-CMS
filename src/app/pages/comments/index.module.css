@@ -1,5 +1,5 @@
 .commentSection {
-  width: 45vw;
+  width: max(45vw, 400px);
 }
 
 .commentSectionTitle {

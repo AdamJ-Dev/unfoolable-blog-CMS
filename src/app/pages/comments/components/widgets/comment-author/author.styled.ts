@@ -9,6 +9,7 @@ const CommentAuthor = styled.h3<CommentAuthorProps>`
   color: ${(props) => {
     return props.isUser && props.theme.colours[props.isAdmin ? 'admin' : 'user'];
   }};
+  margin: 0;
 `;
 
 export default CommentAuthor;

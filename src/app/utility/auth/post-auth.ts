@@ -1,7 +1,7 @@
 import { postJson } from '../../../lib/data-fetching/post-json';
 import { AuthRes } from '../../types/auth';
 
-const postAuth = async (url: string, body: Record<string, string>): Promise<AuthRes> => {
+const postAuth = async (url: string, body: Record<string, unknown>): Promise<AuthRes> => {
   const res = await postJson(url, body);
   const data = await res.json();
 

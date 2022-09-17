@@ -1,5 +1,6 @@
 import { getCookieValue, selectCookie } from '../../../lib/document/cookies';
 import { isJsonString } from '../../../lib/format/is-json-string';
+import { isUndefined } from '../../../lib/type-guards/is-defined';
 import { USER_NOT_FOUND } from '../../constants/errors';
 
 type StoredUser = {
@@ -21,7 +22,7 @@ export const getStoredUser = (): StoredUser => {
 
 const getStoredUserInfo = (info: keyof StoredUser, storedUser: StoredUser) => {
   const storedInfo = storedUser[info];
-  if (!storedInfo) {
+  if (isUndefined(storedInfo)) {
     throw Error(USER_NOT_FOUND);
   } else {
     return storedInfo;

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { SyntheticEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import type { LoginForm } from '../../types/auth';
 import Block from '../../components/styled/block/index.styled';
 import Button from '../../components/styled/button/index.styled';
@@ -16,10 +16,10 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleLogin = async (e: SyntheticEvent) => {
+  const handleLogin = async (e: FormEvent<LoginForm>) => {
     e.preventDefault();
 
-    const form = e.target as LoginForm;
+    const form = e.currentTarget;
     const username = form.username.value;
     const password = form.password.value;
 

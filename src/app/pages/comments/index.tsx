@@ -1,9 +1,9 @@
 import { PlusIcon } from '../../../lib/icons';
-import Container from '../../components/styled/container/index.styled';
-import StyledNextLink from '../../components/styled/link/next-link.styled';
 import { CREATE_COMMENT } from '../../constants/element-ids';
 import type { BlogComment } from '../../types/comments';
 import { withParentNames } from '../../utility/comments/with-parent-names';
+import Container from '../../components/styled/container/index.styled';
+import StyledNextLink from '../../components/styled/link/next-link.styled';
 import Comment from './components/comment';
 import CommentForm from './components/comment-form';
 import CommentsContextProvider from './context/provider';
