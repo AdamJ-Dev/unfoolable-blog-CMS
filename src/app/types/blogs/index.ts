@@ -1,24 +1,21 @@
-import { DBObjId } from '../general';
+import { CustomForm, DBObjId } from '../general';
 
 type BlogCore = {
   title: string;
   path: string;
   body: string;
   tags: string[];
+  isDraft: boolean;
   createdAt: string;
   updatedAtDate: string;
 };
 
 type DBBlogIds = {
   _id: DBObjId;
-  blogId: DBObjId;
-  parentId?: DBObjId;
 };
 
 type ClientBlogIds = {
   id: string;
-  blogId: string;
-  parentId?: string;
 };
 
 export type DBBlog = BlogCore & DBBlogIds;
@@ -35,3 +32,13 @@ type FetchBlogError = {
 };
 
 export type FetchBlogRes = FetchBlogSuccess | FetchBlogError;
+
+export type NewBlog = {
+  title: string;
+  path: string;
+  body: string;
+  tags: string[];
+  isDraft: boolean;
+};
+
+export type NewDraftForm = CustomForm<'title'>;

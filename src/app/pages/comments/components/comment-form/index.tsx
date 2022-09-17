@@ -34,8 +34,8 @@ const CommentForm: React.FC<CommentFormProps> = ({ reply }) => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    const author = form.author.value;
-    const body = form.body.value;
+    const author = form.author.value.trim();
+    const body = form.body.value.trim();
 
     setIsPosting(true);
     const { error } = await postComment(isAdmin ? getCreateAdminCommentUrl() : getCreateUserCommentUrl(), {

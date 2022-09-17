@@ -10,8 +10,8 @@ type ButtonProps = {
 };
 
 const Button = styled.button<ButtonProps>`
-  background: ${({ theme }) => {
-    return theme.colours.widget;
+  background: ${({ theme, disabled }) => {
+    return !disabled ? theme.colours.widget : theme.colours.widgetDisabled;
   }};
   border-radius: ${({ size }) => {
     switch (size) {

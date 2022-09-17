@@ -1,9 +1,9 @@
 import type { GetStaticPaths } from 'next';
 import type { DBBlog } from '../../../types/blogs';
-import { getFindAllBlogsUrl } from '../../../../../config/api/selectors';
+import { getFindPublishedBlogsUrl } from '../../../../../config/api/selectors';
 
 const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(getFindAllBlogsUrl({ absolute: true }));
+  const res = await fetch(getFindPublishedBlogsUrl({ absolute: true }));
 
   if (!res.ok) {
     return {

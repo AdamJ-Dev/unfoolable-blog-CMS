@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next';
-import { getFindAllBlogsUrl } from '../../../../../config/api/selectors';
+import { getFindPublishedBlogsUrl } from '../../../../../config/api/selectors';
 import { getUnexpectedErrorRedirect } from '../../../utility/redirects/unexpected-error';
-import { parseDBBlogs } from './helpers/parse-db-blogs';
+import { parseDBBlogs } from '../../../utility/blogs/parse-db-blogs';
 
 const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(getFindAllBlogsUrl({ absolute: true }));
+  const res = await fetch(getFindPublishedBlogsUrl({ absolute: true }));
 
   if (!res.ok) {
     return getUnexpectedErrorRedirect();

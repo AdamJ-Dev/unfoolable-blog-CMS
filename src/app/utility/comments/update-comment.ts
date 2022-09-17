@@ -1,6 +1,6 @@
 import { getUpdateCommentUrl } from '../../../../config/api/selectors';
 import { putJson } from '../../../lib/data-fetching/post-json';
-import { getAuthToken } from '../data-fetching/get-auth-token';
+import { getAuthToken } from '../data-fetching/get-auth-creds';
 
 export const updateComment = async (id: string, updates: { pinned: boolean }) => {
   const res = await putJson(getUpdateCommentUrl(id), { pinned: updates.pinned ? 'PIN' : '' }, getAuthToken());
