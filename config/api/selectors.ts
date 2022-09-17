@@ -45,6 +45,14 @@ export const getFindAllBlogsUrl = (options?: { absolute: boolean }) => {
   return getUrl(api.routes.blogs.findAllBlogs, getAbsolute(options));
 };
 
+export const getFindPublishedBlogsUrl = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.blogs.findPublishedBlogs, getAbsolute(options));
+};
+
+export const getFindBlogDraftsUrl = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.blogs.findBlogDrafts, getAbsolute(options));
+};
+
 export const getFindBlogUrl = (id: string, options?: { absolute: boolean }) => {
   return getUrl(applyIds(api.routes.blogs.findBlog, [[':id', id]]), getAbsolute(options));
 };

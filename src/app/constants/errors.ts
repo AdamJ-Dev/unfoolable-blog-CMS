@@ -13,3 +13,6 @@ export const PASSWORDS_DONT_MATCH = "Your passwords don't match.";
 // context
 export const COMMENTS_CONTEXT_PROVIDER_MISSING =
   'Comments context must be consumed within a context provider.';
+
+// new draft
+export const DRAFT_TITLE_TAKEN = 'You already have a draft by that title.';

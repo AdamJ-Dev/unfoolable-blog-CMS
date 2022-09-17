@@ -2,10 +2,17 @@
   border: 1px solid darkblue;
 }
 
+.commentBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .commentInfo {
   display: flex;
   gap: 8px;
   margin-bottom: 5px;
+  font-size: 13px;
 }
 
 .commentInfoItem {

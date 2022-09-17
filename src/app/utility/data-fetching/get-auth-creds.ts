@@ -9,3 +9,9 @@ export const getAuthToken = () => {
     return '';
   }
 };
+
+export const getAuthHeader = () => {
+  return {
+    Authorization: getAuthToken(),
+  };
+};

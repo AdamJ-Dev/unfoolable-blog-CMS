@@ -1,11 +1,13 @@
-import { DBObjId } from '../general';
+import { CustomForm, DBObjId } from '../general';
+
+type CommentAuthor = {
+  name: string;
+  isUser: boolean;
+  isAdmin: boolean;
+};
 
 type CommentCore = {
-  author: {
-    name: string;
-    isUser: boolean;
-    isAdmin: boolean;
-  };
+  author: CommentAuthor;
   body: string;
   pinned: boolean;
   createdAt: string;
@@ -26,3 +28,12 @@ type ClientCommentIds = {
 
 export type DBComment = CommentCore & DBCommentIds;
 export type BlogComment = CommentCore & ClientCommentIds;
+
+export type NewComment = {
+  author: CommentAuthor;
+  body: string;
+  blogId: string;
+  parentId?: string;
+};
+
+export type NewCommentForm = CustomForm<'author' | 'body'>;

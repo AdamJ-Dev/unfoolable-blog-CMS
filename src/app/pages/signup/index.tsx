@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { SyntheticEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import {
   getPasscodeSignupSpec,
   getPasswordSignupSpec,
@@ -20,12 +20,12 @@ import styles from '../../styles/auth.module.css';
 const Signup = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSignup = async (e: SyntheticEvent) => {
+  const handleSignup = async (e: FormEvent<SignupForm>) => {
     e.preventDefault();
 
-    const form = e.target as SignupForm;
+    const form = e.currentTarget;
     const username = form.username.value;
     const password = form.password.value;
     const confirm = form.confirm.value;

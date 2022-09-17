@@ -1,21 +1,22 @@
-import type { CommentsContext } from './setup';
+import { ActionMap } from '../../../../lib/types/action-map';
+import type { CommentsState } from './setup';
 
-export const actions = {
-  SET_BLOG_ID: 'SET_BLOG_ID' as const,
+export enum ActionTypes {
+  SET_BLOG_ID = 'SET_BLOG_ID',
+}
+
+type PayloadMap = {
+  [ActionTypes.SET_BLOG_ID]: string;
 };
 
-type CommentsAction = {
-  type: keyof typeof actions;
-  payload: string;
-};
+export type CommentsAction = ActionMap<PayloadMap>[keyof PayloadMap];
 
-const commentsReducer = (state: CommentsContext, action: CommentsAction): CommentsContext => {
-  const { type, payload } = action;
-  switch (type) {
-    case actions.SET_BLOG_ID:
+const commentsReducer = (state: CommentsState, action: CommentsAction): CommentsState => {
+  switch (action.type) {
+    case ActionTypes.SET_BLOG_ID:
       return {
         ...state,
-        blogId: payload,
+        blogId: action.payload,
       };
   }
 };

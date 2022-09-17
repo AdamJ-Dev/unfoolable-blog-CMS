@@ -1,6 +1,6 @@
 import { getDeleteCommentUrl } from '../../../../config/api/selectors';
 import { fetchDelete } from '../../../lib/data-fetching/fetch-delete';
-import { getAuthToken } from '../data-fetching/get-auth-token';
+import { getAuthToken } from '../data-fetching/get-auth-creds';
 
 const deleteComment = async (id: string) => {
   const res = await fetchDelete(getDeleteCommentUrl(id), getAuthToken());

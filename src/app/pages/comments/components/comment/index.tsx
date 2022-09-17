@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getDateDisplay } from '../../../../../lib/format/get-date-display';
 import type { BlogComment } from '../../../../types/comments';
@@ -9,9 +10,8 @@ import CommentAuthor from '../widgets/comment-author/author.styled';
 import CommentPin from '../widgets/comment-pin';
 import ReplyButton from '../widgets/reply-button';
 import ReplyingTo from '../widgets/replying-to';
-import Reply from '../reply';
+import CommentForm from '../comment-form';
 import styles from './index.module.css';
-import { useRouter } from 'next/router';
 
 type CommentProps = {
   comment: BlogComment;
@@ -26,7 +26,6 @@ const Comment: React.FC<CommentProps> = ({
     pinned,
     parentId,
     createdAt,
-    updatedAt,
   },
   replyingTo,
 }) => {
@@ -41,20 +40,18 @@ const Comment: React.FC<CommentProps> = ({
 
   return (
     <div id={id}>
-      <Block className={isInFocus ? styles.focusedComment : ''}>
-        <CommentAuthor isAdmin={isAdmin} isUser={isUser}>
-          {name}
-        </CommentAuthor>
+      <Block className={`${isInFocus && styles.focusedComment}`}>
+        <div className={styles.commentBanner}>
+          <CommentAuthor isAdmin={isAdmin} isUser={isUser}>
+            {name}
+          </CommentAuthor>
+          {parentId && replyingTo && <ReplyingTo parentId={parentId} replyingTo={replyingTo} />}
+        </div>
         <Markdownalise>{body}</Markdownalise>
         <hr />
         <div className={styles.commentInfo}>
-          {parentId && replyingTo && (
-            <span className={styles.commentInfoItem}>
-              <ReplyingTo parentId={parentId} replyingTo={replyingTo} />
-            </span>
-          )}
           <span>
-            <strong>Posted</strong>: <em>{getDateDisplay(createdAt, updatedAt)}</em>
+            <strong>Posted</strong>: <em>{getDateDisplay(createdAt)}</em>
           </span>
         </div>
         <hr />
@@ -66,7 +63,7 @@ const Comment: React.FC<CommentProps> = ({
           <DeleteButton id={id} deleter={deleteComment} />
         </div>
       </Block>
-      {isReplying && <Reply parentId={id} replyingTo={name} setIsReplying={setIsReplying} />}
+      {isReplying && <CommentForm reply={{ parentId: id, replyingToAuthor: name, setIsReplying }} />}
     </div>
   );
 };

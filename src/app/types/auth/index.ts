@@ -1,4 +1,10 @@
-import { DBObjId } from '../general';
+import { CustomForm, DBObjId } from '../general';
+
+export type UserCookie = {
+  id: string;
+  token: string;
+  admin?: string;
+};
 
 export type User = {
   _id: DBObjId;
@@ -24,23 +30,6 @@ type AuthError = {
 
 export type AuthRes = AuthSuccess | AuthError;
 
-export type LoginForm = HTMLFormElement & {
-  username: {
-    value: string;
-  };
-  password: {
-    value: string;
-  };
-};
+export type LoginForm = CustomForm<'username' | 'password'>;
 
-export type SignupForm = HTMLFormElement & {
-  username: {
-    value: string;
-  };
-  password: {
-    value: string;
-  };
-  confirm: {
-    value: string;
-  };
-};
+export type SignupForm = CustomForm<'username' | 'password' | 'confirm'>;

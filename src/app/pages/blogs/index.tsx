@@ -17,7 +17,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
     <Container m="30px" p="30px">
       <div>
         <h1 className={styles.blogsTitle}>Blogs</h1>
-        <StyledNextLink href="blog/workspace" linker={<PlusIcon />} />
+        <StyledNextLink href="/blog/drafts" linker={<PlusIcon />} />
       </div>
       <ul className={styles.blogsList}>
         {blogs.map((blog) => (

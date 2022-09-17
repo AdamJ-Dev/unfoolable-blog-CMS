@@ -9,6 +9,8 @@
     },
     "blogs": {
       "findAllBlogs": "blogs",
+      "findPublishedBlogs": "blogs/published",
+      "findBlogDrafts": "blogs/drafts",
       "findBlog": "blog/:id",
       "createBlog": "blog/create",
       "updateBlog": "blog/:id",

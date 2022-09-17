@@ -10,7 +10,6 @@ Such tasks are possible according to the following permissions:
   delete a blog: admin;
   pin a comment: admin;
   create a verified comment: user;
-  edit your own verified comment: user;
   delete a comment: admin;
 ```
 

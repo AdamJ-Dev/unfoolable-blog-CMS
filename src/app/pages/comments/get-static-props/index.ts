@@ -1,6 +1,6 @@
 import type { GetStaticProps } from 'next';
 import { getFindBlogsCommentsUrl } from '../../../../../config/api/selectors';
-import { isString } from '../../../../lib/format/is-string';
+import { isString } from '../../../../lib/type-guards/is-string';
 import { getUnexpectedErrorRedirect } from '../../../utility/redirects/unexpected-error';
 import { parseDBComments } from './helpers/parse-db-comments';
 import { parsePinnedComments } from './helpers/parse-pinned';

@@ -10,8 +10,7 @@ type CommentsContextProviderProps = {
 const CommentsContextProvider: React.FC<CommentsContextProviderProps> = ({ children, blogId }) => {
   const [state, dispatch] = useReducer(commentsReducer, { blogId });
 
-  const context = { ...state, dispatch };
-  return <CommentsContext.Provider value={context}>{children}</CommentsContext.Provider>;
+  return <CommentsContext.Provider value={{ ...state, dispatch }}>{children}</CommentsContext.Provider>;
 };
 
 export default CommentsContextProvider;
