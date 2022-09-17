@@ -1,6 +1,7 @@
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 import HighlightedCode from './highlighted-code';
+import Blockquote from '../styled/blockquote/index.styled';
 
 type MarkdownaliseProps = {
   children: string;
@@ -17,6 +18,7 @@ const Markdownalise: React.FC<MarkdownaliseProps> = ({ children }) => {
             </HighlightedCode>
           );
         },
+        blockquote: (props) => <Blockquote {...props} />,
       }}
       remarkPlugins={[remarkGfm]}
     >
