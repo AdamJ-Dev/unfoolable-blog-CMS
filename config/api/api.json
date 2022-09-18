@@ -1,29 +1,29 @@
 {
-  "baseDevUrl": "http://localhost:3001/",
-  "baseProxy": "/api/",
+  "baseDevUrl": "http://localhost:3001",
+  "baseProxy": "/api",
   "routes": {
     "auth": {
-      "findUser": "user/:id",
-      "login": "user/login",
-      "signup": "user/signup"
+      "findUser": "/user/:id",
+      "login": "/user/login",
+      "signup": "/user/signup"
     },
     "blogs": {
-      "findAllBlogs": "blogs",
-      "findPublishedBlogs": "blogs/published",
-      "findBlogDrafts": "blogs/drafts",
-      "findBlog": "blog/:id",
-      "createBlog": "blog/create",
-      "updateBlog": "blog/:id",
-      "deleteBlog": "blog/:id"
+      "findAllBlogs": "/blogs",
+      "findPublishedBlogs": "/blogs/published",
+      "findBlogDrafts": "/blogs/drafts",
+      "findBlog": "/blog/:id",
+      "createBlog": "/blog/create",
+      "updateBlog": "/blog/:id",
+      "deleteBlog": "/blog/:id"
     },
     "comments": {
-      "findAllComments": "comments",
-      "findBlogsComments": "blog/:blog_id/comments",
-      "findComment": "comment/:id",
-      "createComment": "comment/create",
-      "createUserComment": "comment/user/create",
-      "createAdminComment": "comment/admin/create",
-      "updateComment": "comment/:id",
+      "findAllComments": "/comments",
+      "findBlogsComments": "/blog/:blog_id/comments",
+      "findComment": "/comment/:id",
+      "createComment": "/comment/create",
+      "createUserComment": "/comment/user/create",
+      "createAdminComment": "/comment/admin/create",
+      "updateComment": "/comment/:id",
       "deleteComment": "/comment/:id"
     }
   }

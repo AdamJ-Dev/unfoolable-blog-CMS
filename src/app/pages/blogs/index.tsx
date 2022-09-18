@@ -7,6 +7,7 @@ import BlogActions from './components/blog-actions-list';
 import Date from '../../components/styled/date/index.styled';
 import StyledNextLink from '../../components/styled/link/next-link.styled';
 import styles from './index.module.css';
+import { getDraftsPath } from '../../../../config/pages/selectors';
 
 type BlogsPageProps = {
   blogs: Blog[];
@@ -17,7 +18,7 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
     <Container m="30px" p="30px">
       <div>
         <h1 className={styles.blogsTitle}>Blogs</h1>
-        <StyledNextLink href="/blog/drafts" linker={<PlusIcon />} />
+        <StyledNextLink href={getDraftsPath()} linker={<PlusIcon />} />
       </div>
       <ul className={styles.blogsList}>
         {blogs.map((blog) => (

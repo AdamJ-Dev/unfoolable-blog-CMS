@@ -4,6 +4,7 @@ import { AuthRedirect } from '../../types/auth';
 import useUser from '../../hooks/use-user';
 import { isFetchResolved } from '../../utility/data-fetching/is-fetch-resolved';
 import Container from '../styled/container/index.styled';
+import { getHomePath, getLoginPath } from '../../../../config/pages/selectors';
 
 type AuthWrapProps = {
   children: React.ReactNode;
@@ -18,7 +19,7 @@ const AuthWrap: React.FC<AuthWrapProps> = ({ children, authRedirect }) => {
   const protectRoute = () => {
     const isntAuthed = Boolean(error);
     if (isntAuthed) {
-      router.push('/login');
+      router.push(getLoginPath());
     } else {
       setShouldRender(true);
     }
@@ -27,7 +28,7 @@ const AuthWrap: React.FC<AuthWrapProps> = ({ children, authRedirect }) => {
   const alignRoute = () => {
     const isAuthed = Boolean(user);
     if (isAuthed) {
-      router.push(authRedirect.to || '/');
+      router.push(authRedirect.to || getHomePath());
     } else {
       setShouldRender(true);
     }
@@ -44,6 +45,7 @@ const AuthWrap: React.FC<AuthWrapProps> = ({ children, authRedirect }) => {
           break;
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, error, loading]);
 
   return (

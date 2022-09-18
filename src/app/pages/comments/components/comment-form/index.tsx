@@ -14,6 +14,7 @@ import useCommentsContext from '../../context/use-context';
 import TextInput from '../../../../components/styled/text-input/index.styled';
 import styles from './index.module.css';
 import ErrorLog from '../../../../components/widgety/error-log';
+import { getCommentsFormatting } from '../../../../../../config/pages/selectors';
 
 type CommentFormProps = {
   reply?: {
@@ -82,7 +83,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ reply }) => {
             ></textarea>
             <div className={styles.dialogueItem}>
               {FORMATTING_NOTIF}
-              <StyledNextLink href="https://www.markdownguide.org/basic-syntax/" linker="markdown" />
+              <StyledNextLink href={getCommentsFormatting().link} linker={getCommentsFormatting().name} />
               {'. '}
               {BY_CLICKING_POST} <StyledNextLink href="/about#comment-policy" linker="comment policy" />
               {'.'}

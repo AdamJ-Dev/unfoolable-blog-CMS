@@ -1,0 +1,27 @@
+{
+  "home": {
+    "path":  "/"
+  },
+  "blogs": {
+    "path": "/blogs"
+  },
+  "login": {
+    "path": "/login"
+  },
+  "signup": {
+    "path": "/signup"
+  },
+  "drafts": {
+    "path": "/blogs/drafts"
+  },
+  "workspace": {
+    "path": "/blog/:id"
+  },
+  "comments": {
+    "path": "/blog/comments/:blog_id",
+    "formatting": {
+        "link": "https://www.markdownguide.org/basic-syntax/", 
+        "name": "Markdown"
+    }
+  }
+}
