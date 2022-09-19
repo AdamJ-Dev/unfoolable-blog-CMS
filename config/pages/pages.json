@@ -15,7 +15,14 @@
     "path": "/blogs/drafts"
   },
   "workspace": {
-    "path": "/blog/:id"
+    "path": "/blog/workspace/:id",
+    "formatting": {
+      "link": "https://www.markdownguide.org/basic-syntax/", 
+      "name": "Markdown"
+    },
+    "autosave": {
+      "interval": 10000
+    }
   },
   "comments": {
     "path": "/blog/comments/:blog_id",

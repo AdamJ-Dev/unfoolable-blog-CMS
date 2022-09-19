@@ -15,7 +15,7 @@ type BlogsPageProps = {
 
 const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
   return (
-    <Container m="30px" p="30px">
+    <Container>
       <div>
         <h1 className={styles.blogsTitle}>Blogs</h1>
         <StyledNextLink href={getDraftsPath()} linker={<PlusIcon />} />

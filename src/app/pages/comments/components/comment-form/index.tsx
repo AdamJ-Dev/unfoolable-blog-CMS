@@ -15,6 +15,7 @@ import TextInput from '../../../../components/styled/text-input/index.styled';
 import styles from './index.module.css';
 import ErrorLog from '../../../../components/widgety/error-log';
 import { getCommentsFormatting } from '../../../../../../config/pages/selectors';
+import Textarea from '../../../../components/styled/textarea/index.styled';
 
 type CommentFormProps = {
   reply?: {
@@ -72,15 +73,22 @@ const CommentForm: React.FC<CommentFormProps> = ({ reply }) => {
               )}
             </div>
             <InputLabel htmlFor="create-comment-author">Author:</InputLabel>
-            <TextInput w="50%" id="create-comment-author" type="text" name="author" required />
+            <TextInput
+              id="create-comment-author"
+              type="text"
+              className={styles.commentName}
+              name="author"
+              autoComplete="off"
+              required
+            />
             <InputLabel htmlFor="create-comment-body">Your thoughts:</InputLabel>
-            <textarea
+            <Textarea
               className={styles.commentBody}
               title="new comment"
               name="body"
               id="create-comment-body"
               required
-            ></textarea>
+            ></Textarea>
             <div className={styles.dialogueItem}>
               {FORMATTING_NOTIF}
               <StyledNextLink href={getCommentsFormatting().link} linker={getCommentsFormatting().name} />

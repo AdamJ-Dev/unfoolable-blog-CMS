@@ -11,6 +11,7 @@
       "findAllBlogs": "/blogs",
       "findPublishedBlogs": "/blogs/published",
       "findBlogDrafts": "/blogs/drafts",
+      "findBlogTags": "/blogs/tags",
       "findBlog": "/blog/:id",
       "createBlog": "/blog/create",
       "updateBlog": "/blog/:id",

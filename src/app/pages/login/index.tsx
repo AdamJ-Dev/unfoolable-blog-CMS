@@ -34,14 +34,27 @@ const Login = () => {
   };
 
   return (
-    <Container m="10px 30px" p="30px">
+    <Container className={styles.authPageContainer}>
       <h1>Log In</h1>
       <div className={styles.authFormContainer}>
         <form onSubmit={handleLogin} spellCheck={false}>
           <InputLabel htmlFor="login-username">Username:</InputLabel>
-          <TextInput type="text" id="login-username" name="username" autoComplete="off" required />
+          <TextInput
+            type="text"
+            id="login-username"
+            className={styles.authInput}
+            name="username"
+            autoComplete="off"
+            required
+          />
           <InputLabel htmlFor="login-password">Password:</InputLabel>
-          <TextInput type="password" id="login-password" name="password" required />
+          <TextInput
+            type="password"
+            id="login-password"
+            className={styles.authInput}
+            name="password"
+            required
+          />
           <Button type="submit">{isLoading ? 'Loading...' : 'Log In'}</Button>
           <Block>
             <span>Don&apos;t have an account? </span>

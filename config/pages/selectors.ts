@@ -37,6 +37,14 @@ export const getWorkspacePath = (id: string) => {
   return applyIds(pages.workspace.path, [[':id', id]]);
 };
 
+export const getAutosaveInterval = () => {
+  return pages.workspace.autosave.interval;
+};
+
+export const getNewBlogFormatting = () => {
+  return pages.workspace.formatting;
+};
+
 // comments
 
 export const getCommentsPath = (blogId: string) => {

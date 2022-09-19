@@ -42,7 +42,7 @@ const Signup = () => {
   };
 
   return (
-    <Container m="10px 30px" p="30px">
+    <Container className={styles.authPageContainer}>
       <h1>Sign Up</h1>
       <div className={styles.authFormContainer}>
         <form onSubmit={handleSignup} spellCheck={false}>
@@ -50,19 +50,44 @@ const Signup = () => {
             target={<InputLabel htmlFor="signup-username">Username</InputLabel>}
             details={<small>{getUsernameSignupSpec()}</small>}
           />
-          <TextInput type="text" id="signup-username" name="username" autoComplete="off" required />
+          <TextInput
+            type="text"
+            id="signup-username"
+            className={styles.authInput}
+            name="username"
+            autoComplete="off"
+            required
+          />
           <Expander
             target={<InputLabel htmlFor="signup-password">Password</InputLabel>}
             details={<small>{getPasswordSignupSpec()}</small>}
           />
-          <TextInput type="password" id="signup-password" name="password" required />
+          <TextInput
+            type="password"
+            id="signup-password"
+            className={styles.authInput}
+            name="password"
+            required
+          />
           <InputLabel htmlFor="signup-confirm-password">Confirm Password</InputLabel>
-          <TextInput type="password" id="signup-confirm-password" name="confirm" required />
+          <TextInput
+            type="password"
+            id="signup-confirm-password"
+            className={styles.authInput}
+            name="confirm"
+            required
+          />
           <Expander
             target={<InputLabel htmlFor="signup-passcode">Passcode</InputLabel>}
             details={<small>{getPasscodeSignupSpec()}</small>}
           />
-          <TextInput type="password" id="signup-passcode" name="passcode" required />
+          <TextInput
+            type="password"
+            id="signup-passcode"
+            className={styles.authInput}
+            name="passcode"
+            required
+          />
           <Button type="submit">{isLoading ? 'Loading..' : 'Sign Up'}</Button>
           <Block>
             <span>Already have an account? </span>
