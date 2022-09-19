@@ -1,8 +1,26 @@
-import { getStoredUser, getStoredUserToken } from '../auth/get-stored-user';
+import { isJsonString } from '../../../lib/format/is-json-string';
+import { getStoredUserClient, getStoredUserServer, getStoredUserToken } from '../auth/get-stored-user';
 
-export const getAuthToken = () => {
+export const getAuthTokenClient = () => {
   try {
-    const user = getStoredUser();
+    const user = getStoredUserClient();
+    const token = getStoredUserToken(user);
+    return `Bearer ${token}`;
+  } catch (error) {
+    console.log(error);
+    return '';
+  }
+};
+
+export const getAuthHeaderClient = () => {
+  return {
+    Authorization: getAuthTokenClient(),
+  };
+};
+
+export const getAuthTokenServer = (userCookie: string | undefined) => {
+  try {
+    const user = getStoredUserServer(userCookie);
     const token = getStoredUserToken(user);
     return `Bearer ${token}`;
   } catch (error) {
@@ -10,8 +28,8 @@ export const getAuthToken = () => {
   }
 };
 
-export const getAuthHeader = () => {
+export const getAuthHeaderServer = (userCookie: string | undefined) => {
   return {
-    Authorization: getAuthToken(),
+    Authorization: getAuthTokenServer(userCookie),
   };
 };

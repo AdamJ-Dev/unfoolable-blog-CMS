@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import { getFindPublishedBlogsUrl } from '../../../../../config/api/selectors';
-import { getUnexpectedErrorRedirect } from '../../../utility/redirects/unexpected-error';
+import { getUnexpectedErrorRedirect } from '../../../utility/routing/unexpected-error';
 import { parseDBBlogs } from '../../../utility/blogs/parse-db-blogs';
 
 const getStaticProps: GetStaticProps = async () => {

@@ -1,0 +1,34 @@
+{
+  "home": {
+    "path":  "/"
+  },
+  "blogs": {
+    "path": "/blogs"
+  },
+  "login": {
+    "path": "/login"
+  },
+  "signup": {
+    "path": "/signup"
+  },
+  "drafts": {
+    "path": "/blogs/drafts"
+  },
+  "workspace": {
+    "path": "/blog/workspace/:id",
+    "formatting": {
+      "link": "https://www.markdownguide.org/basic-syntax/", 
+      "name": "Markdown"
+    },
+    "autosave": {
+      "interval": 10000
+    }
+  },
+  "comments": {
+    "path": "/blog/comments/:blog_id",
+    "formatting": {
+        "link": "https://www.markdownguide.org/basic-syntax/", 
+        "name": "Markdown"
+    }
+  }
+}

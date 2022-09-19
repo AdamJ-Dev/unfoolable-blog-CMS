@@ -3,6 +3,7 @@ import { getLanguage } from './helpers/get-language';
 import { tomorrowNight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { prepareHighlight } from './helpers/prepare-highlight';
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import styles from './index.module.css';
 
 type HighlightedCodeProps = {
   children: React.ReactNode;
@@ -18,7 +19,13 @@ const HighlightedCode: React.FC<HighlightedCodeProps> = ({ children, inline, cla
 
   if (!inline && language) {
     return (
-      <SyntaxHighlighter language={language} style={tomorrowNight} PreTag="div" {...otherProps}>
+      <SyntaxHighlighter
+        className={styles.highlightedCode}
+        language={language}
+        style={tomorrowNight}
+        PreTag="div"
+        {...otherProps}
+      >
         {prepareHighlight(children)}
       </SyntaxHighlighter>
     );

@@ -1,4 +1,4 @@
-import { getCookieValue, selectCookie } from '../../../lib/document/cookies';
+import { getCookies, getCookieValue, selectCookie } from '../../../lib/document/cookies';
 import { isJsonString } from '../../../lib/format/is-json-string';
 import { isUndefined } from '../../../lib/type-guards/is-defined';
 import { USER_NOT_FOUND } from '../../constants/errors';
@@ -9,13 +9,20 @@ type StoredUser = {
   admin?: string;
 };
 
-export const getStoredUser = (): StoredUser => {
-  const cookie = selectCookie('user');
+export const getStoredUserClient = (): StoredUser => {
+  const cookie = selectCookie('user', getCookies());
   if (cookie) {
     const user = getCookieValue(cookie);
     if (isJsonString(user)) {
       return JSON.parse(user);
     }
+  }
+  throw Error(USER_NOT_FOUND);
+};
+
+export const getStoredUserServer = (userCookie: string | undefined): StoredUser => {
+  if (userCookie && isJsonString(userCookie)) {
+    return JSON.parse(userCookie);
   }
   throw Error(USER_NOT_FOUND);
 };

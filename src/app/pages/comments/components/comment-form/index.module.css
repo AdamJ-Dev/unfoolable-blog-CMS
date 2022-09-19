@@ -14,18 +14,14 @@
   cursor: pointer;
 }
 
-.commentBody {
-  width: 90%;
-  display: block;
-  margin: 10px 0;
-  border: 2px solid black;
-  border-radius: 4px;
-  padding: 10px;
-  resize: vertical;
+.commentName {
+  width: 50%;
 }
 
-.commentBody:focus {
-  outline: none;
+.commentBody {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
 }
 
 .dialogueItem {

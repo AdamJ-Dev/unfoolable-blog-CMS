@@ -1,5 +1,5 @@
 import api from './api.json';
-import { getAbsolute, applyIds } from './helpers/parse-routes';
+import { getAbsolute, applyIds } from '../../src/app/utility/routing/parse-routes';
 
 // base urls:
 export const getApiBaseDevUrl = () => {
@@ -51,6 +51,10 @@ export const getFindPublishedBlogsUrl = (options?: { absolute: boolean }) => {
 
 export const getFindBlogDraftsUrl = (options?: { absolute: boolean }) => {
   return getUrl(api.routes.blogs.findBlogDrafts, getAbsolute(options));
+};
+
+export const getFindBlogTags = (options?: { absolute: boolean }) => {
+  return getUrl(api.routes.blogs.findBlogTags, getAbsolute(options));
 };
 
 export const getFindBlogUrl = (id: string, options?: { absolute: boolean }) => {

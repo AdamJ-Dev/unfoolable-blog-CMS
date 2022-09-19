@@ -11,6 +11,7 @@ import ErrorLog from '../../components/widgety/error-log';
 import { DRAFT_TITLE_TAKEN } from '../../constants/errors';
 import { Blog, NewDraftForm } from '../../types/blogs';
 import deleteBlog from '../../utility/blogs/delete-blog';
+import { getBlogId } from '../../utility/blogs/parse-db-blogs';
 import { postBlog } from '../../utility/blogs/post-blog';
 import { fetchDrafts } from '../../utility/drafts/fetch-drafts';
 import { getNewDraftTemplate } from '../../utility/drafts/new-draft-template';
@@ -20,7 +21,7 @@ const DraftsPage: React.FC = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isDrafting, setIsDrafting] = useState(false);
-  const [newDraftError, setNewDraftError] = useState<string | null>(null);
+  const [draftError, setDraftError] = useState<string | null>(null);
   const [drafts, setDrafts] = useState<Blog[] | undefined>(undefined);
 
   useEffect(() => {
@@ -38,17 +39,20 @@ const DraftsPage: React.FC = () => {
 
   const handleNewDraft = async (e: FormEvent<NewDraftForm>) => {
     e.preventDefault();
-    const title = e.currentTarget.title.value.trim();
-    if (drafts?.map((draft) => draft.title).includes(title)) {
-      setNewDraftError(DRAFT_TITLE_TAKEN);
+    const form = e.currentTarget;
+    const title = form.title.value.trim();
+    const existingTitles = drafts?.map((draft) => draft.title);
+    if (existingTitles?.includes(title)) {
+      setDraftError(DRAFT_TITLE_TAKEN);
     } else {
+      const newDraft = getNewDraftTemplate(title);
       setIsDrafting(true);
-      const { blog, error } = await postBlog(getNewDraftTemplate(title));
+      const { blog, error } = await postBlog(newDraft);
       setIsDrafting(false);
       if (error) {
-        setNewDraftError(error);
+        setDraftError(error);
       } else {
-        router.push(`/blog/workspace/${blog._id.toString()}`);
+        router.push(`/blog/workspace/${getBlogId(blog)}`);
       }
     }
   };
@@ -66,7 +70,7 @@ const DraftsPage: React.FC = () => {
               </form>
             </Block>
           </div>
-          {newDraftError && <ErrorLog error={newDraftError} />}
+          {draftError && <ErrorLog error={draftError} />}
           <h2>Recent drafts:</h2>
           <ul>
             {drafts.map((draft: Blog) => (

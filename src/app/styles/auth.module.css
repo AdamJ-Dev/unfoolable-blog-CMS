@@ -2,3 +2,12 @@
   display: flex;
   gap: 15px;
 }
+
+.authPageContainer {
+  margin: '10px 30px';
+  padding: '30px';
+}
+
+.authInput {
+  width: '200px';
+}
