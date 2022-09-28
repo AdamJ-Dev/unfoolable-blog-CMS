@@ -1,6 +1,6 @@
 import { getCookies, getCookieValue, selectCookie } from '../../../lib/document/cookies';
 import { isJsonString } from '../../../lib/format/is-json-string';
-import { isUndefined } from '../../../lib/type-guards/is-defined';
+import { isUndefined } from '../../../lib/type-guards/is-undefined';
 import { USER_NOT_FOUND } from '../../constants/errors';
 
 type StoredUser = {

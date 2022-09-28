@@ -1,4 +1,4 @@
-import { isUndefined } from '../type-guards/is-defined';
+import { isUndefined } from '../type-guards/is-undefined';
 import { addPxIfNum } from './add-px';
 
 /**
