@@ -7,7 +7,7 @@ type BlogCore = {
   tags: string[];
   isDraft: boolean;
   createdAt: string;
-  updatedAtDate: string;
+  updatedAt: string;
 };
 
 type DBBlogIds = {
@@ -41,4 +41,12 @@ export type NewBlog = {
   isDraft: boolean;
 };
 
+export type BlogUpdates = {
+  title: string;
+  path: string;
+  body: string;
+  tags: string[];
+};
+
 export type NewDraftForm = CustomForm<'title'>;
+export type NewBlogForm = CustomForm<'title' | 'path' | 'body'>;

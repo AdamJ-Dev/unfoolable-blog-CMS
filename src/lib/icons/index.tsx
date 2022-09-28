@@ -11,3 +11,4 @@ export const ExitIcon = () => <i className="bi bi-x-square"></i>;
 export const ReplyIcon = () => <i className="bi bi-reply"></i>;
 export const FlippedReplyIcon = () => <i className={`bi bi-reply ${styles.flipIcon}`}></i>;
 export const NWArrowIcon = () => <i className="bi bi-arrow-up-left-square-fill"></i>;
+export const DeleteIcon = () => <i className="bi bi-trash"></i>;

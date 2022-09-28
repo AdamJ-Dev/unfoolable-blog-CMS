@@ -3,7 +3,7 @@ import { putJson } from '../../../lib/data-fetching/post-json';
 import { getAuthTokenClient } from '../data-fetching/get-auth-creds';
 
 export const updateComment = async (id: string, updates: { pinned: boolean }) => {
-  const res = await putJson(getUpdateCommentUrl(id), { pinned: updates.pinned }, getAuthTokenClient());
+  const res = await putJson(getUpdateCommentUrl(id), updates, getAuthTokenClient());
   const data = await res.json();
 
   if (!res.ok) {

@@ -15,7 +15,7 @@
     "path": "/blogs/drafts"
   },
   "workspace": {
-    "path": "/blog/workspace/:id",
+    "path": "/blog/workspace/[blog_path]",
     "formatting": {
       "link": "https://www.markdownguide.org/basic-syntax/", 
       "name": "Markdown"
@@ -25,7 +25,7 @@
     }
   },
   "comments": {
-    "path": "/blog/comments/:blog_id",
+    "path": "/blog/comments/[blog_id]",
     "formatting": {
         "link": "https://www.markdownguide.org/basic-syntax/", 
         "name": "Markdown"

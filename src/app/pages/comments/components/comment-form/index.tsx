@@ -93,7 +93,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ reply }) => {
               {FORMATTING_NOTIF}
               <StyledNextLink href={getCommentsFormatting().link} linker={getCommentsFormatting().name} />
               {'. '}
-              {BY_CLICKING_POST} <StyledNextLink href="/about#comment-policy" linker="comment policy" />
+              {BY_CLICKING_POST} <StyledNextLink href="" linker="comment policy" />
               {'.'}
             </div>
             {!isPosting ? (

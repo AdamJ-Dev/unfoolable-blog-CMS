@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { FormEvent, useEffect, useState } from 'react';
+import { getLoginPath, getWorkspacePath } from '../../../../config/pages/selectors';
 import Block from '../../components/styled/block/index.styled';
 import Button from '../../components/styled/button/index.styled';
 import Container from '../../components/styled/container/index.styled';
@@ -11,7 +12,6 @@ import ErrorLog from '../../components/widgety/error-log';
 import { DRAFT_TITLE_TAKEN } from '../../constants/errors';
 import { Blog, NewDraftForm } from '../../types/blogs';
 import deleteBlog from '../../utility/blogs/delete-blog';
-import { getBlogId } from '../../utility/blogs/parse-db-blogs';
 import { postBlog } from '../../utility/blogs/post-blog';
 import { fetchDrafts } from '../../utility/drafts/fetch-drafts';
 import { getNewDraftTemplate } from '../../utility/drafts/new-draft-template';
@@ -29,12 +29,13 @@ const DraftsPage: React.FC = () => {
       const { blogs, error } = await fetchDrafts();
       setIsLoading(false);
       if (error) {
-        router.push('/login');
+        router.push(getLoginPath());
       } else {
         setDrafts(blogs);
       }
     };
     establishDrafts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleNewDraft = async (e: FormEvent<NewDraftForm>) => {
@@ -52,7 +53,7 @@ const DraftsPage: React.FC = () => {
       if (error) {
         setDraftError(error);
       } else {
-        router.push(`/blog/workspace/${getBlogId(blog)}`);
+        router.push(getWorkspacePath(blog.path));
       }
     }
   };
@@ -76,7 +77,7 @@ const DraftsPage: React.FC = () => {
             {drafts.map((draft: Blog) => (
               <li key={draft.id}>
                 <h3>{draft.title}</h3>
-                <StyledNextLink href={`/blog/workspace/${draft.id}`} linker="edit" />
+                <StyledNextLink href={getWorkspacePath(draft.path)} linker="edit" />
                 {' | '}
                 <DeleteButton id={draft.id} deleter={deleteBlog} />
               </li>

@@ -27,10 +27,10 @@ const BlogsPage: React.FC<BlogsPageProps> = ({ blogs }) => {
               target={
                 <span className={styles.blogInfo}>
                   <span className={styles.blogTitle}>{blog.title} </span>
-                  <Date>({getDateDisplay(blog.createdAt, blog.updatedAtDate)})</Date>
+                  <Date>({getDateDisplay(blog.createdAt, blog.updatedAt)})</Date>
                 </span>
               }
-              details={<BlogActions id={blog.id} />}
+              details={<BlogActions blog={blog} />}
             />
           </li>
         ))}
