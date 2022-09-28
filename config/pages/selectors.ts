@@ -33,8 +33,8 @@ export const getDraftsPath = () => {
 
 // workspace
 
-export const getWorkspacePath = (id: string) => {
-  return applyIds(pages.workspace.path, [[':id', id]]);
+export const getWorkspacePath = (blogPath: string) => {
+  return applyIds(pages.workspace.path, [['[blog_path]', blogPath]]);
 };
 
 export const getAutosaveInterval = () => {
@@ -48,7 +48,7 @@ export const getNewBlogFormatting = () => {
 // comments
 
 export const getCommentsPath = (blogId: string) => {
-  return applyIds(pages.comments.path, [[':blog_id', blogId]]);
+  return applyIds(pages.comments.path, [['[blog_id]', blogId]]);
 };
 
 export const getCommentsFormatting = () => {

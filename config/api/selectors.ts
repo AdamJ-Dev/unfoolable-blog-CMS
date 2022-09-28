@@ -57,8 +57,8 @@ export const getFindBlogTags = (options?: { absolute: boolean }) => {
   return getUrl(api.routes.blogs.findBlogTags, getAbsolute(options));
 };
 
-export const getFindBlogUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.blogs.findBlog, [[':id', id]]), getAbsolute(options));
+export const getFindBlogUrl = (path: string, options?: { absolute: boolean }) => {
+  return getUrl(applyIds(api.routes.blogs.findBlog, [[':path', path]]), getAbsolute(options));
 };
 
 export const getCreateBlogUrl = (options?: { absolute: boolean }) => {

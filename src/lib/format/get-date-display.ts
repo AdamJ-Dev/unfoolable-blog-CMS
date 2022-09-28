@@ -9,7 +9,7 @@ const formatDate = (date: string) => {
 export const getDateDisplay = (createdAt: string, updatedAt?: string) => {
   const showLastEdited = updatedAt && createdAt !== updatedAt;
   if (showLastEdited) {
-    return `${formatDate(updatedAt)} (last edit)`;
+    return `Last edited on ${formatDate(updatedAt)}`;
   } else {
     return formatDate(createdAt);
   }

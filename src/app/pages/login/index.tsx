@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
+import { getBlogsPath, getSignupPath } from '../../../../config/pages/selectors';
 import type { LoginForm } from '../../types/auth';
 import Block from '../../components/styled/block/index.styled';
 import Button from '../../components/styled/button/index.styled';
@@ -29,7 +30,7 @@ const Login = () => {
       setError(error);
       setIsLoading(false);
     } else {
-      router.push('/blogs');
+      router.push(getBlogsPath());
     }
   };
 
@@ -58,7 +59,7 @@ const Login = () => {
           <Button type="submit">{isLoading ? 'Loading...' : 'Log In'}</Button>
           <Block>
             <span>Don&apos;t have an account? </span>
-            <StyledNextLink href="/signup" linker="Sign Up" />
+            <StyledNextLink href={getSignupPath()} linker="Sign Up" />
           </Block>
         </form>
         {error && <ErrorLog error={error} />}

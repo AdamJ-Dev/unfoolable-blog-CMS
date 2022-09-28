@@ -5,6 +5,7 @@ import {
   getPasswordSignupSpec,
   getUsernameSignupSpec,
 } from '../../../../config/signup/selectors';
+import { getBlogsPath, getLoginPath } from '../../../../config/pages/selectors';
 import type { SignupForm } from '../../types/auth';
 import Expander from '../../components/widgety/expander';
 import Block from '../../components/styled/block/index.styled';
@@ -37,7 +38,7 @@ const Signup = () => {
       setError(error);
       setIsLoading(false);
     } else {
-      router.push('/blogs');
+      router.push(getBlogsPath());
     }
   };
 
@@ -91,7 +92,7 @@ const Signup = () => {
           <Button type="submit">{isLoading ? 'Loading..' : 'Sign Up'}</Button>
           <Block>
             <span>Already have an account? </span>
-            <StyledNextLink href="/login" linker="Log In" />
+            <StyledNextLink href={getLoginPath()} linker="Log In" />
           </Block>
         </form>
         {error && <ErrorLog error={error} />}

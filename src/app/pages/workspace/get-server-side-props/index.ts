@@ -6,11 +6,12 @@ import { getAuthHeaderServer } from '../../../utility/data-fetching/get-auth-cre
 import { getUnexpectedErrorRedirect } from '../../../utility/routing/unexpected-error';
 
 const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
-  if (!isString(query.blog_id)) return getUnexpectedErrorRedirect();
+  if (!isString(query.blog_path)) return getUnexpectedErrorRedirect();
 
-  const res = await fetch(getFindBlogUrl(query.blog_id, { absolute: true }), {
+  const res = await fetch(getFindBlogUrl(query.blog_path, { absolute: true }), {
     headers: getAuthHeaderServer(req.cookies.user),
   });
+
   if (!res.ok) return getUnexpectedErrorRedirect();
 
   const data = await res.json();

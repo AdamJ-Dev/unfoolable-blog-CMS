@@ -1,4 +1,3 @@
-import { isJsonString } from '../../../lib/format/is-json-string';
 import { getStoredUserClient, getStoredUserServer, getStoredUserToken } from '../auth/get-stored-user';
 
 export const getAuthTokenClient = () => {

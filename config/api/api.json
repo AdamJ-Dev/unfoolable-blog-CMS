@@ -9,10 +9,10 @@
     },
     "blogs": {
       "findAllBlogs": "/blogs",
-      "findPublishedBlogs": "/blogs/published",
+      "findPublishedBlogs": "/blogs/public",
       "findBlogDrafts": "/blogs/drafts",
       "findBlogTags": "/blogs/tags",
-      "findBlog": "/blog/:id",
+      "findBlog": "/blog/:path",
       "createBlog": "/blog/create",
       "updateBlog": "/blog/:id",
       "deleteBlog": "/blog/:id"
