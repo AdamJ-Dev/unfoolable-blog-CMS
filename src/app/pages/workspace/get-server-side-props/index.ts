@@ -8,7 +8,7 @@ import { getUnexpectedErrorRedirect } from '../../../utility/routing/unexpected-
 const getServerSideProps: GetServerSideProps = async ({ req, query }) => {
   if (!isString(query.blog_path)) return getUnexpectedErrorRedirect();
 
-  const res = await fetch(getFindBlogUrl(query.blog_path, { absolute: true }), {
+  const res = await fetch(getFindBlogUrl(query.blog_path), {
     headers: getAuthHeaderServer(req.cookies.user),
   });
 

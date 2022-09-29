@@ -4,7 +4,7 @@ import { getUnexpectedErrorRedirect } from '../../../utility/routing/unexpected-
 import { parseDBBlogs } from '../../../utility/blogs/parse-db-blogs';
 
 const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(getFindPublishedBlogsUrl({ absolute: true }));
+  const res = await fetch(getFindPublishedBlogsUrl());
 
   if (!res.ok) {
     return getUnexpectedErrorRedirect();
