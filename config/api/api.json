@@ -1,6 +1,6 @@
 {
   "baseDevUrl": "http://localhost:3001",
-  "baseProxy": "/api",
+  "baseProdUrl": "https://unfoolable-blog-api.herokuapp.com",
   "routes": {
     "auth": {
       "findUser": "/user/:id",

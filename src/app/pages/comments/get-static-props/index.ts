@@ -9,7 +9,7 @@ const getStaticProps: GetStaticProps = async ({ params }) => {
   const blogId = params?.blog_id;
   if (!isString(blogId)) return getUnexpectedErrorRedirect();
 
-  const res = await fetch(getFindBlogsCommentsUrl(blogId, { absolute: true }));
+  const res = await fetch(getFindBlogsCommentsUrl(blogId));
   if (!res.ok) return getUnexpectedErrorRedirect();
 
   const data = await res.json();
