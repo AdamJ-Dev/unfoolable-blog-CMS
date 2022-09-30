@@ -15,19 +15,6 @@ Such tasks are possible according to the following permissions:
 
 An admin is also a user. To become a user, you have to sign up. To sign up, you require a passcode. The passcode is known only to existing admins, and may be changed at the application owner's discretion.
 
-## Getting started:
-
-After cloning the repository:
-
-1. Install the dependencies with `npm install`. 
-
-2. Connect to the [blog api](https://github.com/AdamJ-Dev/unfoolable-blog-api). Do this by creating a `.env` file and adding the line:
-
-```
-API_URL='https://unfoolable-blog-api.herokuapp.com/'
-```
-3. Serve the application locally with `npm run dev`. You should now see it at port 3000 in the browser.
-
 ## Navigation:
 
 Based on folder structure, here are some notes to help navigating the project:
