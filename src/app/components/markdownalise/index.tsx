@@ -2,6 +2,7 @@ import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 import HighlightedCode from './highlighted-code';
 import Blockquote from '../styled/blockquote/index.styled';
+import StyledLink from '../styled/link/link.styled';
 
 type MarkdownaliseProps = {
   children: string;
@@ -19,6 +20,7 @@ const Markdownalise: React.FC<MarkdownaliseProps> = ({ children }) => {
           );
         },
         blockquote: (props) => <Blockquote {...props} />,
+        a: (props) => <StyledLink {...props} />,
       }}
       remarkPlugins={[remarkGfm]}
     >
