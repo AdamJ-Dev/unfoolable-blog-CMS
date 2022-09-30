@@ -1,110 +1,105 @@
 import api from './api.json';
-import { getAbsolute, applyIds } from '../../src/app/utility/routing/parse-routes';
+import { applyIds } from '../../src/app/utility/routing/parse-routes';
 
 // base urls:
 export const getApiBaseDevUrl = () => {
   return api.baseDevUrl;
 };
 
-export const getApiProxyPrefix = () => {
-  return api.baseProxy;
+export const getApiBaseProdUrl = () => {
+  return api.baseProdUrl;
 };
 
 export const getApiBaseUrl = () => {
-  return process.env.API_URL || getApiBaseDevUrl();
+  switch (process.env.NODE_ENV) {
+    case 'production':
+      return getApiBaseProdUrl();
+    default:
+      return getApiBaseDevUrl();
+  }
 };
 
 // url constructors:
-export const getAbsoluteRouteUrl = (route: string) => {
+
+export const getUrl = (route: string) => {
   return `${getApiBaseUrl()}${route}`;
 };
 
-export const getProxyRouteUrl = (route: string) => {
-  return `${getApiProxyPrefix()}${route}`;
-};
-
-export const getUrl = (route: string, absolute: boolean) => {
-  return absolute ? getAbsoluteRouteUrl(route) : getProxyRouteUrl(route);
-};
-
 // auth routes:
-export const getFindUserUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.auth.findUser, [[':id', id]]), getAbsolute(options));
+export const getFindUserUrl = (id: string) => {
+  return getUrl(applyIds(api.routes.auth.findUser, [[':id', id]]));
 };
 
-export const getLoginUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.auth.login, getAbsolute(options));
+export const getLoginUrl = () => {
+  return getUrl(api.routes.auth.login);
 };
 
-export const getSignupUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.auth.signup, getAbsolute(options));
+export const getSignupUrl = () => {
+  return getUrl(api.routes.auth.signup);
 };
 
 // blog routes:
-export const getFindAllBlogsUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.blogs.findAllBlogs, getAbsolute(options));
+export const getFindAllBlogsUrl = () => {
+  return getUrl(api.routes.blogs.findAllBlogs);
 };
 
-export const getFindPublishedBlogsUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.blogs.findPublishedBlogs, getAbsolute(options));
+export const getFindPublishedBlogsUrl = () => {
+  return getUrl(api.routes.blogs.findPublishedBlogs);
 };
 
-export const getFindBlogDraftsUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.blogs.findBlogDrafts, getAbsolute(options));
+export const getFindBlogDraftsUrl = () => {
+  return getUrl(api.routes.blogs.findBlogDrafts);
 };
 
-export const getFindBlogTags = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.blogs.findBlogTags, getAbsolute(options));
+export const getFindBlogTags = () => {
+  return getUrl(api.routes.blogs.findBlogTags);
 };
 
-export const getFindBlogUrl = (path: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.blogs.findBlog, [[':path', path]]), getAbsolute(options));
+export const getFindBlogUrl = (path: string) => {
+  return getUrl(applyIds(api.routes.blogs.findBlog, [[':path', path]]));
 };
 
-export const getCreateBlogUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.blogs.createBlog, getAbsolute(options));
+export const getCreateBlogUrl = () => {
+  return getUrl(api.routes.blogs.createBlog);
 };
 
-export const getUpdateBlogUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.blogs.updateBlog, [[':id', id]]), getAbsolute(options));
+export const getUpdateBlogUrl = (id: string) => {
+  return getUrl(applyIds(api.routes.blogs.updateBlog, [[':id', id]]));
 };
 
-export const getDeleteBlogUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.blogs.deleteBlog, [[':id', id]]), getAbsolute(options));
+export const getDeleteBlogUrl = (id: string) => {
+  return getUrl(applyIds(api.routes.blogs.deleteBlog, [[':id', id]]));
 };
 
 // comments routes
-export const getFindAllCommentsUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.comments.findAllComments, getAbsolute(options));
+export const getFindAllCommentsUrl = () => {
+  return getUrl(api.routes.comments.findAllComments);
 };
 
-export const getFindBlogsCommentsUrl = (blogId: string, options?: { absolute: boolean }) => {
-  return getUrl(
-    applyIds(api.routes.comments.findBlogsComments, [[':blog_id', blogId]]),
-    getAbsolute(options)
-  );
+export const getFindBlogsCommentsUrl = (blogId: string) => {
+  return getUrl(applyIds(api.routes.comments.findBlogsComments, [[':blog_id', blogId]]));
 };
 
-export const getFindComment = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.comments.findComment, [[':id', id]]), getAbsolute(options));
+export const getFindComment = (id: string) => {
+  return getUrl(applyIds(api.routes.comments.findComment, [[':id', id]]));
 };
 
-export const getCreateCommentUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.comments.createComment, getAbsolute(options));
+export const getCreateCommentUrl = () => {
+  return getUrl(api.routes.comments.createComment);
 };
 
-export const getCreateUserCommentUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.comments.createUserComment, getAbsolute(options));
+export const getCreateUserCommentUrl = () => {
+  return getUrl(api.routes.comments.createUserComment);
 };
 
-export const getCreateAdminCommentUrl = (options?: { absolute: boolean }) => {
-  return getUrl(api.routes.comments.createAdminComment, getAbsolute(options));
+export const getCreateAdminCommentUrl = () => {
+  return getUrl(api.routes.comments.createAdminComment);
 };
 
-export const getUpdateCommentUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.comments.updateComment, [[':id', id]]), getAbsolute(options));
+export const getUpdateCommentUrl = (id: string) => {
+  return getUrl(applyIds(api.routes.comments.updateComment, [[':id', id]]));
 };
 
-export const getDeleteCommentUrl = (id: string, options?: { absolute: boolean }) => {
-  return getUrl(applyIds(api.routes.comments.deleteComment, [[':id', id]]), getAbsolute(options));
+export const getDeleteCommentUrl = (id: string) => {
+  return getUrl(applyIds(api.routes.comments.deleteComment, [[':id', id]]));
 };

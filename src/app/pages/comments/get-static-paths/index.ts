@@ -4,7 +4,7 @@ import { getFindPublishedBlogsUrl } from '../../../../../config/api/selectors';
 import { getBlogId } from '../../../utility/blogs/parse-db-blogs';
 
 const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(getFindPublishedBlogsUrl({ absolute: true }));
+  const res = await fetch(getFindPublishedBlogsUrl());
 
   if (!res.ok) {
     return {
