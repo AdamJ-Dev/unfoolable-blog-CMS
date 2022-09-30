@@ -9,6 +9,7 @@ const getPostOptions = (headers: Record<string, string>, body: Record<string, un
     method,
     headers,
     body: JSON.stringify(body),
+    credentials: 'include' as const,
   };
   return postOptions;
 };
