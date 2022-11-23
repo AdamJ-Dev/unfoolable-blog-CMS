@@ -1,9 +1,9 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { getFindPublishedBlogsUrl } from '../../../../../config/api/selectors';
 import { getUnexpectedErrorRedirect } from '../../../utility/routing/unexpected-error';
 import { parseDBBlogs } from '../../../utility/blogs/parse-db-blogs';
 
-const getStaticProps: GetStaticProps = async () => {
+const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(getFindPublishedBlogsUrl());
 
   if (!res.ok) {
@@ -20,4 +20,4 @@ const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default getStaticProps;
+export default getServerSideProps;
