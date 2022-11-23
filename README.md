@@ -1,6 +1,6 @@
 # unfoolable CMS
 
-The purpose of this application is to **manage content** on AdamJ-Dev's **[blog](https://unfoolable.blog)**. This means *creating*, *editing*, and *deleting* blogs, as well *pinning*, *deleting*, and *creating user/admin versions of* blog comments. 
+The purpose of this application is to **manage content** on AdamJ-Dev's **[blog](https://adamdoes.blog)**. This means *creating*, *editing*, and *deleting* blogs, as well *pinning*, *deleting*, and *creating user/admin versions of* blog comments. 
 
 Such tasks are possible according to the following permissions:
 
